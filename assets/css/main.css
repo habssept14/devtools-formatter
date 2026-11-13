@@ -1,0 +1,224 @@
+:root {
+  --paper: #F6F5F1;
+  --paper-raised: #FFFFFF;
+  --ink: #1B1B18;
+  --ink-soft: #55534C;
+  --line: #DAD7CD;
+  --accent: #2F5D8A;
+  --accent-soft: #E7EEF4;
+  --signal: #C9822A;
+  --good: #3D7A5C;
+  --bad: #B4452A;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3, .mono, nav, label, .tool-tag, button, .btn {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 860px) {
+  .site-shell { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--line); }
+}
+
+.sidebar {
+  border-right: 1px solid var(--line);
+  padding: 28px 22px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.brand-sub {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  margin-bottom: 28px;
+}
+
+.tool-group-title {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 20px 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.tool-link {
+  display: block;
+  padding: 6px 8px;
+  margin: 0 -8px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.tool-link:hover { background: var(--accent-soft); text-decoration: none; }
+.tool-link.active { background: var(--accent); color: #fff; }
+
+.main {
+  padding: 40px 48px 80px;
+  max-width: 980px;
+}
+
+@media (max-width: 640px) {
+  .main { padding: 28px 18px 60px; }
+}
+
+.crumb {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.tool-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.tool-desc {
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 0 32px;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  .panes { grid-template-columns: 1fr; }
+}
+
+.pane {
+  background: var(--paper-raised);
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.pane textarea {
+  border: none;
+  resize: none;
+  padding: 16px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  min-height: 380px;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  padding: 9px 16px;
+  font-size: 0.78rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.status-line {
+  font-size: 0.78rem;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+.status-good { color: var(--good); }
+.status-bad { color: var(--bad); }
+
+.ad-slot {
+  border: 1px dashed var(--line);
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  text-align: center;
+  padding: 14px;
+  margin: 32px 0;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 60px;
+  padding-top: 20px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 16px 22px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  z-index: 50;
+}
+
+#cookie-banner .btn { background: var(--signal); border-color: var(--signal); }
